@@ -55,9 +55,9 @@ int main ()
 
     while(1)
     {
-	// Move out
-	for(j = STARTLOOP; j < LOOPMAX; j++)
-	{
+        // Move out
+        for(j = STARTLOOP; j < LOOPMAX; j++)
+        {
             // Clear inner portion of world
             for(i = STARTLOOP; i < LOOPMAX; i++)
             {
@@ -70,11 +70,11 @@ int main ()
 
             // Wait for RTC tick
             ece391_read(rtc_fd, &garbage, 4);
-	}
+        }
 
-	// Bounce back
-    	for(j = LOOPMAX - 1; j >= STARTLOOP; j--)
-    	{
+        // Bounce back
+        for(j = LOOPMAX - 1; j >= STARTLOOP; j--)
+        {
             // Clear inner portion of the world
             for(i = STARTLOOP; i < LOOPMAX; i++)
             {
@@ -87,18 +87,18 @@ int main ()
 
             // Wait for RTC tick
             ece391_read(rtc_fd, &garbage, 4);
-    	}
+        }
 
-	// Edge case on characters
-	if(curchar == ENDCHAR)
-	{
+        // Edge case on characters
+        if(curchar == ENDCHAR)
+        {
             curchar = STARTCHAR;
-	}
-	else
-	{
+        }
+        else
+        {
             // Update current character
             curchar = curchar + update;
-	}
+        }
     }
     return 0;
 }
